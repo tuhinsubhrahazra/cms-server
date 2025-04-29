@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/G:/Netbeans%20projects/CMS_SERVER/web/index.html</file>
-            <file>file:/G:/Netbeans%20projects/CMS_SERVER/src/java/cms_servlet/FetchAllComplain.java</file>
-            <file>file:/G:/Netbeans%20projects/CMS_SERVER/src/java/cms_servlet/RegisterComplain.java</file>
-            <file>file:/G:/Netbeans%20projects/CMS_SERVER/src/java/cms_servlet/CreateUser.java</file>
-            <file>file:/G:/Netbeans%20projects/CMS_SERVER/src/java/cms_servlet/UpdateStatus.java</file>
-            <file>file:/G:/Netbeans%20projects/CMS_SERVER/src/java/cms_servlet/VerifyUser.java</file>
-            <file>file:/G:/Netbeans%20projects/CMS_SERVER/src/java/cms_servlet/CheckSession.java</file>
+            <file>file:/D:/cms/cms-server/src/java/utils/EmailSender.java</file>
+            <file>file:/D:/cms/cms-server/src/java/cms_servlet/CreateUser.java</file>
+            <file>file:/D:/cms/cms-server/src/java/utils/Security.java</file>
+            <file>file:/D:/cms/cms-server/src/java/cms_servlet/VerifyUser.java</file>
         </group>
     </open-files>
 </project-private>

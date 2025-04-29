@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import utils.Security;
 
 /**
  *
@@ -80,7 +81,7 @@ public class CreateUser extends HttpServlet {
  
                 String salt = generateSalt();
  
-                String hashedPassword = hashPasswordPBKDF2(password, salt);
+                String hashedPassword = Security.hashPasswordPBKDF2(password, salt);
  
                 String saltAndHashedPassword = salt + ":" + hashedPassword;
  
@@ -134,21 +135,7 @@ public class CreateUser extends HttpServlet {
         return Base64.getEncoder().encodeToString(salt);
     }
  
-    private String hashPasswordPBKDF2(String password, String salt)
-            throws NoSuchAlgorithmException, InvalidKeySpecException {
-
-        int iterations = 65536;
-        int keyLength = 128; // bits
-        char[] chars = password.toCharArray();
-        byte[] saltBytes = Base64.getDecoder().decode(salt);
-
-        PBEKeySpec spec = new PBEKeySpec(chars, saltBytes, iterations, keyLength);
-        SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
-        byte[] hash = skf.generateSecret(spec).getEncoded();
-
-        return Base64.getEncoder().encodeToString(hash);
-    }
-
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
