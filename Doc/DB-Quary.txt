@@ -1,0 +1,85 @@
+
+CREATE TABLE CMS_UserDetails (
+    SrNo INT IDENTITY(1,1) PRIMARY KEY,
+    UserID VARCHAR(50),
+    Name VARCHAR(255), 
+    Email VARCHAR(100) UNIQUE,  
+    Pwd VARCHAR(MAX),
+	ProductType VARCHAR(200),
+	ComplainMsg VARCHAR(MAX),
+	ComplainImg VARCHAR(MAX),
+	ComplainAudio VARCHAR(MAX),
+    UserType VARCHAR(50), 
+    Address VARCHAR(255),  
+    PhoneNumber VARCHAR(15), 
+    UserOrgId VARCHAR(50),  
+    UserSubType VARCHAR(50), 
+    UserExpiry VARCHAR(100),  
+    EmployeeId VARCHAR(50), 
+    EmployeeRoll VARCHAR(50),
+    DateTimeStamp DATETIME DEFAULT GETDATE()
+);
+---------------------
+
+
+CREATE TABLE CMS_UserComplain (
+    SrNo INT IDENTITY(1,1) PRIMARY KEY, 
+	ComplaintId VARCHAR(50),
+    Email VARCHAR(100) NULL,  
+    ProductType VARCHAR(200),
+	PhoneNumber VARCHAR(50),
+	Status VARCHAR(50),
+    ComplainMsg VARCHAR(MAX),
+    ComplainImg VARCHAR(MAX),
+    ComplainAudio VARCHAR(MAX),   
+    DateTimeStamp DATETIME DEFAULT GETDATE()
+);
+
+---------------------------
+
+
+CREATE PROCEDURE Proc_CMS_UserDetails
+    @UserID VARCHAR(50),
+    @Name VARCHAR(255),
+    @Email VARCHAR(100),
+    @UserType VARCHAR(50),
+    @Address VARCHAR(255),
+    @PhoneNumber VARCHAR(15),
+    @UserOrgId VARCHAR(50),
+    @UserSubType VARCHAR(50),
+    @UserExpiry VARCHAR(100),
+    @EmployeeId VARCHAR(50),
+    @EmployeeRoll VARCHAR(50)
+AS
+BEGIN
+    -- Insert data into the CMS_UserDetails table
+    INSERT INTO CMS_UserDetails (
+        UserID,
+        Name,
+        Email,
+        UserType,
+        Address,
+        PhoneNumber,
+        UserOrgId,
+        UserSubType,
+        UserExpiry,
+        EmployeeId,
+        EmployeeRoll
+    )
+    VALUES (
+        @UserID, 
+        @Name, 
+        @Email, 
+        @UserType, 
+        @Address, 
+        @PhoneNumber, 
+        @UserOrgId, 
+        @UserSubType, 
+        @UserExpiry, 
+        @EmployeeId, 
+        @EmployeeRoll
+    );
+END;
+
+------------------------------
+
